@@ -45,17 +45,17 @@ public class Main {
     }
 
     public static void usingIntegerAdditionMonoid() {
-        Monoid<Integer> iaMonoid = new IntegerAdditionMonoid();
+        Monoid<UnsignedInteger> uiaMonoid = new UnsignedIntegerAdditionMonoid();
 
-        MonoidElement<Integer> element1 = new MonoidElement<>(5, iaMonoid);
-        MonoidElement<Integer> element2 = new MonoidElement<>(10, iaMonoid);
-        MonoidElement<Integer> element3 = new MonoidElement<>(12, iaMonoid);
+        MonoidElement<UnsignedInteger> element1 = new MonoidElement<>(new UnsignedInteger(5), uiaMonoid);
+        MonoidElement<UnsignedInteger> element2 = new MonoidElement<>(new UnsignedInteger(10), uiaMonoid);
+        MonoidElement<UnsignedInteger> element3 = new MonoidElement<>(new UnsignedInteger(12), uiaMonoid);
 
-        MonoidElement<Integer> combinedElement = element1.combine(element2);
+        MonoidElement<UnsignedInteger> combinedElement = element1.combine(element2);
         System.out.println("Combined Element: " + combinedElement);
 
         System.out.println("Is element1 identity? " + element1.isIdentity()); // Вывод: Is element1 identity? false
-        System.out.println("Is identity element? " + new MonoidElement<>(0, iaMonoid).isIdentity()); // Вывод: Is identity element? true
+        System.out.println("Is identity element? " + new MonoidElement<>(new UnsignedInteger(0), uiaMonoid).isIdentity()); // Вывод: Is identity element? true
     }
 
     public static void main(String[] args) {
