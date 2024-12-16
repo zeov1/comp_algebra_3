@@ -23,6 +23,11 @@ public class UnsignedInteger {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        return (obj instanceof UnsignedInteger) && (this.val == ((UnsignedInteger)obj).val);
+    }
+
+    @Override
     public String toString() {
         return String.valueOf(val);
     }

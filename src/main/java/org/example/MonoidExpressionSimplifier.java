@@ -64,39 +64,7 @@ public class MonoidExpressionSimplifier {
                 int value = Integer.parseInt(numberMatcher.group());
                 result = result.combine(new MonoidElement<>((T) new UnsignedInteger(value), monoid));
             } while (numberMatcher.find());
-
-
-
         }
-
-
         return result;
-    }
-
-
-
-    public static void test() {
-
-        String setExpression = "{apple, banana} {banana, cherry} {date}";
-        MonoidElement<Set<String>> simplifiedSet = simplify(setExpression, "SetAddition");
-        System.out.println("Simplified Set: " + simplifiedSet.getValue());
-
-        String stringExpression = "{Hello} {World!}";
-        MonoidElement<String> simplifiedString = simplify(stringExpression, "StringConcatenation");
-        System.out.println("Simplified String: " + simplifiedString.getValue());
-        
-        String stringExpression2 = ""; // Test empty string
-        MonoidElement<String> simplifiedString2 = simplify(stringExpression2, "StringConcatenation");
-        System.out.println("Simplified String 2: " + simplifiedString2.getValue());  // Should print ""
-
-        String uintExpression = "5 10 12";
-        MonoidElement<UnsignedInteger> simplifiedUint = simplify(uintExpression, "UnsignedIntegerAddition");
-        System.out.println("Simplified Unsigned Integer: " + simplifiedUint.getValue());
-
-        String uintExpression2 = ""; // Test empty input
-        MonoidElement<UnsignedInteger> simplifiedUint2 = simplify(uintExpression2, "UnsignedIntegerAddition");
-        System.out.println("Simplified Unsigned Integer 2: " + simplifiedUint2.getValue()); // Should print 0
-
-
     }
 }
