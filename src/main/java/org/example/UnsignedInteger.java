@@ -21,4 +21,9 @@ public class UnsignedInteger {
     public UnsignedInteger add(UnsignedInteger other) {
         return new UnsignedInteger(this.val + other.val);
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(val);
+    }
 }
